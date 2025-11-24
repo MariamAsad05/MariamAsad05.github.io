@@ -1,34 +1,50 @@
 // Smooth scrolling for navbar links
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').slice(1);
-        const target = document.getElementById(targetId);
-        if (target) {
-            window.scrollTo({
-                top: target.offsetTop - 65,
-                behavior: 'smooth'
-            });
+        // Only prevent default and smooth scroll if the link is an in-page anchor
+        const href = link.getAttribute('href');
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href.slice(1);
+            const target = document.getElementById(targetId);
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 65,
+                    behavior: 'smooth'
+                });
+            }
         }
     });
 });
 
-// Navbar active state on scroll
-window.addEventListener('scroll', function() {
-    const sections = ['about', 'education', 'skills', 'experience', 'resume', 'contact'];
-    let scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
-    let offsetPadding = 220;
-    sections.forEach(id => {
-        const sec = document.getElementById(id);
-        if (sec && scrollPos >= sec.offsetTop - offsetPadding) {
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            const currNav = document.querySelector(`.nav-link[href="#${id}"]`);
-            if (currNav) currNav.classList.add('active');
+// Navbar active state on scroll (Only for index.html)
+// Note: This logic only runs on index.html and ignores the education link.
+if (document.title.includes('E-Portfolio')) { // Check if it's the main page
+    window.addEventListener('scroll', function() {
+        // Removed 'education' from sections
+        const sections = ['about', 'skills', 'experience', 'resume', 'contact']; 
+        let scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+        let offsetPadding = 220;
+        sections.forEach(id => {
+            const sec = document.getElementById(id);
+            if (sec && scrollPos >= sec.offsetTop - offsetPadding) {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                const currNav = document.querySelector(`.nav-link[href="#${id}"]`);
+                if (currNav) currNav.classList.add('active');
+            }
+        });
+        
+        // Handle active state when scrolling is above the first section (About)
+        const aboutSection = document.getElementById('about');
+        if (aboutSection && scrollPos < aboutSection.offsetTop - offsetPadding) {
+             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         }
     });
-});
+}
+
 
 // Intersection observer for fade-ins
+// Only observe elements that exist on the current page
 const fadeEls = document.querySelectorAll('.glass-section, .skills-grid, .resume-section, .contact-container, .exp-card, .skill-card, .skill-square, .course-item');
 const fadeObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -55,17 +71,21 @@ microGlowEls.forEach(el => {
 });
 
 // Contact form JS (dummy handler for submission)
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    document.getElementById("formMsg").textContent = "Thanks for your message!";
-    setTimeout(() => {
-        document.getElementById("formMsg").textContent = "";
-    }, 3500);
-    this.reset();
-});
+const contactForm = document.getElementById("contactForm");
+if (contactForm) { // Only run if the form exists (on index.html)
+    contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        document.getElementById("formMsg").textContent = "Thanks for your message!";
+        setTimeout(() => {
+            document.getElementById("formMsg").textContent = "";
+        }, 3500);
+        this.reset();
+    });
+}
+
 
 // Arrow scroll-down button functionality
-document.getElementById('scrollDownBtn').addEventListener('click', function() {
+document.getElementById('scrollDownBtn')?.addEventListener('click', function() {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
         aboutSection.scrollIntoView({behavior: 'smooth', block: 'start'});
