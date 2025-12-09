@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariam Asad — Goals</title>
+    <link
+        href="https://fonts.googleapis.com/css?family=Inter:400,700|Poppins:400,600|Space+Grotesk:400,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+
+
+
+
+</head>
+
+<body>
+    <canvas id="backgroundCanvas"></canvas>
+    <canvas id="starsCanvas"></canvas>
+    <canvas id="milkyWayCanvas"></canvas>
+
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Me</a></li>
+            <li><a href="career.html" class="nav-link">Career</a></li>
+            <li><a href="goals.html" class="nav-link active">Goals</a></li>
+            <li><a href="https://drive.google.com/drive/folders/1wx3dRWC4T8VPFT4oNfc-UmYFNDKFCZBQ?usp=drive_link"
+                    target="_blank" class="nav-link">Resume</a></li>
+        </ul>
+        <div class="nav-image-box"
+      style="width: 50px; height: 50px; border-radius: 50%; background-image: url('mariam.png'); background-size: cover; background-position: center;">
+    </div>
+    </nav>
+
+    <main>
+
+        <section class="section-container">
+            <h2 class="section-title">My Goals</h2>
+            <p class="section-subtext">My journey in Computer Science isn’t only about skills, it’s about becoming the
+                kind of engineer, leader, and person I want to be. These goals represent my long-term direction,
+                purpose, and the future I’m working toward.</p>
+
+            <div class="goals-grid">
+
+                <div class="goal-card glass-card neon-cyan neon-hover">
+                    <h3>Become a Full-Stack Software Engineer</h3>
+                    <p>
+                        Become confident in modern full-stack technologies, including React, .NET/Node.js, and cloud
+                        platforms. My goal is to build scalable and user-focused applications that strengthen my
+                        technical foundation and prepare me for real-world software engineering challenges. My goal is
+                        to eventually design real applications that help people, not just projects
+                        that exist inside my laptop.
+                    </p>
+                </div>
+
+                <div class="goal-card glass-card neon-purple neon-hover">
+                    <h3>Deepen AI & ML Expertise</h3>
+                    <p>
+                        Continue learning advanced AI and machine learning concepts through hands-on projects,
+                        experimentation, and real data-driven applications. This will help me gain a deeper
+                        understanding of how intelligent systems are built and how they can be used to solve modern
+                        problems. I want to explore AI and Machine Learning not just as buzzwords, but as tools
+                        for solving real challenges—from healthcare, security, human-computer interaction, and more.
+                    </p>
+                </div>
+
+                <div class="goal-card glass-card neon-blue neon-hover">
+                    <h3>Build Impactful Tech for People</h3>
+                    <p>
+                        My long-term purpose in Computer Science is to use technology in a way that improves lives.
+                        Whether that’s through smart systems, data-driven insights, or automation, I want my work to
+                        have a positive impact and serve a purpose bigger than just writing code.
+                    </p>
+                </div>
+
+                <div class="goal-card glass-card neon-teal neon-hover">
+                    <h3>Continue Becoming My Best Self</h3>
+                    <p>
+                        Beyond just technical growth, I want to stay curious, keep learning, and continue building
+                        confidence in who I’m becoming as a young woman in tech. I want to lead, communicate well,
+                        believe in myself, and stay passionate about creating the future I dream of.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section-container timeline-section">
+
+            <h2 class="section-title">Where I See Myself</h2>
+
+            <div class="future-timeline">
+
+                <div class="future-step">
+                    <h3>2026</h3>
+                    <p>Grow my skills during internships, build more advanced software, and learn from real engineering
+                        teams.</p>
+                </div>
+
+                <div class="future-step">
+                    <h3>2027</h3>
+                    <p>Graduate and start a full-time role in software development or AI systems engineering.</p>
+                </div>
+
+                <div class="future-step">
+                    <h3>2030</h3>
+                    <p>Lead projects that use technology for positive change in healthcare, education, accessibility,
+                        and
+                        social good.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="section-container dream-section">
+
+            <img src="image.png" class="dream-img" />
+
+            <div class="dream-text glass-card">
+                <h2 >My Long-Term Dream</h2>
+                <p>
+                    Beyond titles or jobs, I want to become someone who uses technology with purpose, to help people,
+                    solve problems, and inspire others through my journey. My biggest dream is to grow into a woman in
+                    tech who leads with creativity, and impact.
+                </p>
+            </div>
+        </section>
+
+
+        <section class="section-container connect-section">
+            <h2>Ready to collaborate?</h2>
+            <a href="mailto:mariam17270@gmail.com" class="connect-btn">Let's Connect</a>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+
+        <small>&copy; 2025 Mariam Asad. All rights reserved.</small>
+    </footer>
+
+    <script>
+        // Simple script to set active nav link
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === 'goals.html') {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    <script src="milkyway.js"></script>
+
+</body>
+
+
+</html>
